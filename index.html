@@ -20,6 +20,10 @@
         .img-zoom { cursor: zoom-in; transition: transform 0.2s; }
         .img-zoom:hover { transform: scale(1.02); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
         
+        /* Card Logo Animation */
+        .logo-card:hover img { transform: scale(1.05); }
+        .logo-card img { transition: transform 0.3s ease; }
+
         /* Modal */
         #modal { display: none; position: fixed; z-index: 999; inset: 0; background: rgba(0,0,0,0.95); align-items: center; justify-content: center; padding: 20px; }
         #modal img { max-width: 100%; max-height: 90vh; border-radius: 8px; box-shadow: 0 25px 50px -12px rgba(0,0,0,0.5); }
@@ -40,7 +44,7 @@
         <div class="border-b">
             <div class="container mx-auto px-4 py-3 flex items-center justify-between">
                 <div class="flex items-center space-x-3 cursor-pointer" onclick="switchTab('home')">
-                    <img src="gesa.png" alt="Logo GESA" class="h-10 w-auto">
+                    <div class="h-10 w-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">G</div>
                     <div class="h-8 w-px bg-gray-200 hidden md:block"></div>
                     <span class="text-xl font-black tracking-tighter uppercase">GESA<span class="text-blue-600">DIGITAL</span>HUB</span>
                 </div>
@@ -67,50 +71,65 @@
                 <button onclick="switchTab('kms')" id="btn-kms" class="nav-item flex-1 py-4 px-4 hover:bg-slate-50 transition-all border-b-2 border-transparent whitespace-nowrap">
                     KMS Digital
                 </button>
+                <button onclick="switchTab('storms')" id="btn-storms" class="nav-item flex-1 py-4 px-4 hover:bg-slate-50 transition-all border-b-2 border-transparent whitespace-nowrap text-red-600">
+                    STORMS
+                </button>
             </div>
         </div>
     </div>
 
     <main class="flex-1 overflow-y-auto p-4 md:p-8 bg-slate-100 relative scroll-smooth">
-        <div class="container mx-auto max-w-5xl pb-20">
+        <div class="container mx-auto max-w-6xl pb-20">
 
             <section id="tab-home" class="tab-content fade-in">
-                <div class="text-center py-12">
+                <div class="text-center py-10">
                     <h1 class="text-3xl md:text-5xl font-black text-slate-800 mb-6">Portal Dokumentasi Digital</h1>
-                    <p class="text-slate-600 max-w-2xl mx-auto mb-12 text-lg">Panduan lengkap dan padat bagi sistem pengurusan sekolah bersepadu: Kehadiran, PdP, Pentaksiran, dan Kokurikulum.</p>
+                    <p class="text-slate-600 max-w-2xl mx-auto mb-10 text-lg">Panduan lengkap ekosistem pengurusan sekolah: Kehadiran, PdP, Pentaksiran, Kokurikulum, dan Sukan.</p>
                     
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-                        <div onclick="switchTab('ehadir')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-blue-500 transition-all group">
-                            <div class="w-14 h-14 bg-blue-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-blue-600 transition-colors mx-auto">
-                                <i class="fas fa-fingerprint text-blue-600 text-2xl group-hover:text-white"></i>
+                    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4 md:gap-6">
+                        
+                        <div onclick="switchTab('ehadir')" class="logo-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-blue-500 hover:shadow-md transition-all group">
+                            <div class="h-24 flex items-center justify-center mb-4">
+                                <img src="ehadir.png" alt="Logo e-Hadir" class="max-h-full max-w-full object-contain drop-shadow-sm">
                             </div>
-                            <h3 class="font-bold text-slate-800">e-Hadir</h3>
+                            <h3 class="font-bold text-slate-800 text-sm md:text-base group-hover:text-blue-600 transition-colors">e-Hadir</h3>
                         </div>
-                        <div onclick="switchTab('erph')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-indigo-500 transition-all group">
-                            <div class="w-14 h-14 bg-indigo-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-indigo-600 transition-colors mx-auto">
-                                <i class="fas fa-book-open text-indigo-600 text-2xl group-hover:text-white"></i>
+
+                        <div onclick="switchTab('erph')" class="logo-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-indigo-500 hover:shadow-md transition-all group">
+                            <div class="h-24 flex items-center justify-center mb-4">
+                                <img src="erph.png" alt="Logo e-RPH" class="max-h-full max-w-full object-contain drop-shadow-sm">
                             </div>
-                            <h3 class="font-bold text-slate-800">e-RPH</h3>
+                            <h3 class="font-bold text-slate-800 text-sm md:text-base group-hover:text-indigo-600 transition-colors">e-RPH</h3>
                         </div>
-                        <div onclick="switchTab('myeasy')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-emerald-500 transition-all group">
-                            <div class="w-14 h-14 bg-emerald-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-emerald-600 transition-colors mx-auto">
-                                <i class="fas fa-chart-pie text-emerald-600 text-2xl group-hover:text-white"></i>
+
+                        <div onclick="switchTab('myeasy')" class="logo-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-emerald-500 hover:shadow-md transition-all group">
+                            <div class="h-24 flex items-center justify-center mb-4">
+                                <img src="myeasy.png" alt="Logo MyEasy" class="max-h-full max-w-full object-contain drop-shadow-sm">
                             </div>
-                            <h3 class="font-bold text-slate-800">MyEasy</h3>
+                            <h3 class="font-bold text-slate-800 text-sm md:text-base group-hover:text-emerald-600 transition-colors">MyEasy</h3>
                         </div>
-                        <div onclick="switchTab('kms')" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-orange-500 transition-all group">
-                            <div class="w-14 h-14 bg-orange-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-orange-600 transition-colors mx-auto">
-                                <i class="fas fa-running text-orange-600 text-2xl group-hover:text-white"></i>
+
+                        <div onclick="switchTab('kms')" class="logo-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-orange-500 hover:shadow-md transition-all group">
+                            <div class="h-24 flex items-center justify-center mb-4">
+                                <img src="kms.png" alt="Logo KMS" class="max-h-full max-w-full object-contain drop-shadow-sm">
                             </div>
-                            <h3 class="font-bold text-slate-800">KMS</h3>
+                            <h3 class="font-bold text-slate-800 text-sm md:text-base group-hover:text-orange-600 transition-colors">KMS Digital</h3>
                         </div>
+
+                        <div onclick="switchTab('storms')" class="logo-card bg-white p-6 rounded-2xl shadow-sm border border-slate-200 cursor-pointer hover:border-red-500 hover:shadow-md transition-all group col-span-2 md:col-span-1">
+                            <div class="h-24 flex items-center justify-center mb-4">
+                                <img src="storm.png" alt="Logo STORMS" class="max-h-full max-w-full object-contain drop-shadow-sm">
+                            </div>
+                            <h3 class="font-bold text-slate-800 text-sm md:text-base group-hover:text-red-600 transition-colors">STORMS</h3>
+                        </div>
+
                     </div>
                 </div>
             </section>
 
             <section id="tab-ehadir" class="tab-content hidden fade-in">
                 <div class="flex items-center mb-8">
-                    <span class="bg-blue-600 text-white w-10 h-10 rounded-xl flex items-center justify-center text-lg mr-4"><i class="fas fa-fingerprint"></i></span>
+                    <img src="ehadir.jpg" class="w-12 h-12 rounded-full mr-4 border border-blue-100 shadow-sm">
                     <h2 class="text-3xl font-black text-slate-800 uppercase">e-Hadir Digital</h2>
                 </div>
 
@@ -120,8 +139,8 @@
                         <div>
                             <ul class="desc-list text-sm text-slate-700 leading-relaxed mb-6">
                                 <li><strong>Antara Muka Mesra Pengguna:</strong> Proses log masuk yang ringkas dengan pilihan <strong>Kod PIN 6-Digit</strong>.</li>
-                                <li><strong>Imbasan Pintar:</strong> Menggunakan kamera peranti untuk melakukan pengecaman wajah secara automatik dengan arahan visual <em>"Sila pandang kamera"</em>.</li>
-                                <li><strong>Verifikasi Pantas:</strong> Memastikan identiti individu disahkan sebelum rekod kehadiran disimpan ke dalam pangkalan data.</li>
+                                <li><strong>Imbasan Pintar:</strong> Menggunakan kamera peranti untuk melakukan pengecaman wajah secara automatik.</li>
+                                <li><strong>Verifikasi Pantas:</strong> Memastikan identiti individu disahkan sebelum rekod kehadiran disimpan.</li>
                             </ul>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
@@ -137,10 +156,8 @@
                         <img src="ehadir-dashboard-admin.png" class="img-zoom rounded-xl border border-slate-600 w-full" onclick="openModal(this.src)">
                         <div>
                             <ul class="text-sm text-slate-300 leading-relaxed space-y-4">
-                                <li class="flex items-start"><i class="fas fa-chart-line text-blue-500 mt-1 mr-2"></i> <span><strong>Analitik Masa Nyata:</strong> Dashboard memaparkan statistik kritikal seperti jumlah staf yang hadir vs belum hadir, serta bilangan kakitangan yang hadir lewat (ditanda dengan warna amaran).</span></li>
-                                <li class="flex items-start"><i class="fas fa-list-alt text-blue-500 mt-1 mr-2"></i> <span><strong>Pengurusan Rekod:</strong> Admin boleh melihat senarai nama, masa log masuk yang tepat, dan status kehadiran (Hadir/Lewat) secara tersusun (A-Z).</span></li>
-                                <li class="flex items-start"><i class="fas fa-lock text-blue-500 mt-1 mr-2"></i> <span><strong>Kawalan Akses:</strong> Ruang log masuk khas untuk pentadbir menggunakan emel dan kata laluan bagi menjaga kerahsiaan data.</span></li>
-                                <li class="flex items-start"><i class="fas fa-user-plus text-blue-500 mt-1 mr-2"></i> <span><strong>Pendaftaran Staf:</strong> Membolehkan admin mendaftarkan wajah dan maklumat kakitangan baru terus melalui dashboard.</span></li>
+                                <li class="flex items-start"><i class="fas fa-chart-line text-blue-500 mt-1 mr-2"></i> <span><strong>Analitik Masa Nyata:</strong> Dashboard memaparkan statistik kritikal kehadiran.</span></li>
+                                <li class="flex items-start"><i class="fas fa-list-alt text-blue-500 mt-1 mr-2"></i> <span><strong>Pengurusan Rekod:</strong> Admin boleh melihat senarai nama dan masa log masuk.</span></li>
                             </ul>
                         </div>
                     </div>
@@ -149,19 +166,17 @@
 
             <section id="tab-erph" class="tab-content hidden fade-in">
                 <div class="flex items-center mb-8">
-                    <span class="bg-indigo-600 text-white w-10 h-10 rounded-xl flex items-center justify-center text-lg mr-4"><i class="fas fa-book-open"></i></span>
+                    <img src="erph.jpg" class="w-12 h-12 rounded-full mr-4 border border-indigo-100 shadow-sm">
                     <h2 class="text-3xl font-black text-slate-800 uppercase">e-RPH V3.0</h2>
                 </div>
-
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 mb-8">
                     <h3 class="text-xl font-bold text-indigo-900 border-b pb-4 mb-6">1. Modul Pengguna (Guru)</h3>
                     <div class="grid md:grid-cols-2 gap-8 mb-6">
                         <div>
                             <ul class="desc-list text-sm text-slate-700 leading-relaxed">
-                                <li><strong>Antara Muka Intuitif:</strong> Dashboard pusat yang memberikan akses pantas kepada penjanaan RPH, pengurusan jadual, dan sejarah laporan.</li>
-                                <li><strong>Pengurusan Jadual Fleksibel:</strong> Guru boleh mengemas kini sesi pengajaran mingguan (Isnin-Jumaat) dengan mudah untuk memastikan data RPH sentiasa tepat.</li>
-                                <li><strong>Penjana Automatik Pintar:</strong> Fungsi <em>"Jana Semua + Auto Refleksi"</em> membolehkan RPH harian dijana lengkap dengan objektif dan refleksi hanya dengan satu klik.</li>
-                                <li><strong>Sejarah & Cetakan:</strong> Memudahkan guru menyemak status penghantaran (Draf/Disahkan) serta mencetak RPH untuk simpanan fail fizikal jika perlu.</li>
+                                <li><strong>Antara Muka Intuitif:</strong> Dashboard pusat untuk akses pantas RPH.</li>
+                                <li><strong>Pengurusan Jadual:</strong> Kemaskini sesi pengajaran mingguan dengan mudah.</li>
+                                <li><strong>Auto Refleksi:</strong> Fungsi "Jana Semua" untuk penjimatan masa.</li>
                             </ul>
                         </div>
                         <div class="grid grid-cols-2 gap-4">
@@ -176,37 +191,21 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="bg-indigo-50 border border-indigo-100 rounded-3xl shadow-sm p-8">
-                    <h3 class="text-xl font-bold text-indigo-900 border-b border-indigo-200 pb-4 mb-6">2. Modul Pentadbir (Penyelia)</h3>
-                    <div class="grid md:grid-cols-2 gap-8 items-center">
-                        <img src="erph-semak-rph-admin.png" class="img-zoom rounded-xl border border-indigo-200 shadow-md w-full" onclick="openModal(this.src)">
-                        <div>
-                            <ul class="desc-list text-sm text-slate-700 leading-relaxed">
-                                <li><strong>Semakan Digital Berpusat:</strong> Penyelia boleh melihat senarai RPH yang dihantar oleh guru di bawah seliaan mereka secara terus.</li>
-                                <li><strong>Pengesahan Pantas:</strong> Butang <em>"Sahkan"</em> membolehkan pentadbir meluluskan RPH tanpa perlu tandatangan fizikal, mempercepatkan proses semakan mingguan.</li>
-                                <li><strong>Pemantauan Status:</strong> Memudahkan admin mengenal pasti guru yang belum menghantar RPH atau RPH yang masih dalam status draf.</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <section id="tab-myeasy" class="tab-content hidden fade-in">
                 <div class="flex items-center mb-8">
-                    <span class="bg-emerald-600 text-white w-10 h-10 rounded-xl flex items-center justify-center text-lg mr-4"><i class="fas fa-chart-pie"></i></span>
+                    <img src="myeasy.jpg" class="w-12 h-12 rounded-full mr-4 border border-emerald-100 shadow-sm">
                     <h2 class="text-3xl font-black text-slate-800 uppercase">MyEasy V1.2</h2>
                 </div>
-
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 mb-8">
                     <h3 class="text-xl font-bold text-emerald-900 border-b pb-4 mb-6">1. Modul Pengguna (Guru Subjek)</h3>
                     <div class="grid md:grid-cols-2 gap-8 items-start">
                         <div>
                             <ul class="desc-list text-sm text-slate-700 leading-relaxed mb-6">
-                                <li><strong>Integrasi DELIMa (SSO):</strong> Log masuk selamat menggunakan akaun Google Classroom (MOE-DL) untuk memastikan integriti data markah murid.</li>
-                                <li><strong>Input Markah Berpusat:</strong> Guru boleh memasukkan markah bagi semua subjek teras (BM, BI, MT, SN, dll) dalam satu paparan jadual yang mudah.</li>
-                                <li><strong>Analisis Automatik:</strong> Sebaik sahaja markah dimasukkan, sistem akan mengira <strong>Gred Purata Mata (GPM)</strong> dan <strong>Peratus Lulus</strong> secara automatik untuk rujukan segera.</li>
-                                <li><strong>Eksport Data:</strong> Kemudahan untuk memuat turun analisis dan senarai markah dalam format Excel/CSV untuk pelaporan.</li>
+                                <li><strong>Integrasi DELIMa:</strong> Log masuk selamat menggunakan ID Google Classroom.</li>
+                                <li><strong>Input Markah:</strong> Masukkan markah subjek teras dalam satu paparan.</li>
+                                <li><strong>Analisis Automatik:</strong> Pengiraan GPM dan Peratus Lulus secara auto.</li>
                             </ul>
                         </div>
                         <div class="space-y-4">
@@ -225,26 +224,23 @@
 
             <section id="tab-kms" class="tab-content hidden fade-in">
                 <div class="flex items-center mb-8">
-                    <span class="bg-orange-600 text-white w-10 h-10 rounded-xl flex items-center justify-center text-lg mr-4"><i class="fas fa-running"></i></span>
+                    <img src="kms.jpg" class="w-12 h-12 rounded-full mr-4 border border-orange-100 shadow-sm">
                     <h2 class="text-3xl font-black text-slate-800 uppercase">KMS Digital</h2>
                 </div>
-
                 <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 mb-8">
-                    <h3 class="text-xl font-bold text-orange-900 border-b pb-4 mb-6">1. Modul Pengguna (Guru Penasihat)</h3>
+                    <h3 class="text-xl font-bold text-orange-900 border-b pb-4 mb-6">1. Modul Kokurikulum</h3>
                     <div class="grid md:grid-cols-2 gap-8 items-center">
                         <div>
                             <ul class="desc-list text-sm text-slate-700 leading-relaxed">
-                                <li><strong>Pengurusan Unit Kokurikulum:</strong> Guru penasihat mempunyai akses khusus mengikut unit masing-masing (contoh: Pengakap, BSMM, Kelab Bahasa).</li>
-                                <li><strong>Pelaporan Aktiviti Mingguan:</strong> Memudahkan guru merekod kehadiran murid dan menulis laporan aktiviti mingguan secara digital.</li>
-                                <li><strong>Sistem Merit:</strong> Pemberian markah merit kepada murid yang aktif boleh dilakukan terus melalui sistem untuk pengiraan PAJSK kelak.</li>
+                                <li><strong>Pengurusan Unit:</strong> Guru penasihat mempunyai akses khusus mengikut unit.</li>
+                                <li><strong>Pelaporan Aktiviti:</strong> Rekod kehadiran murid dan laporan aktiviti mingguan.</li>
                             </ul>
                         </div>
                         <img src="kms-dashboard-unit.png" class="img-zoom rounded-xl border shadow-sm w-full" onclick="openModal(this.src)">
                     </div>
                 </div>
-
                 <div class="bg-orange-50 border border-orange-100 rounded-3xl shadow-sm p-8">
-                    <h3 class="text-xl font-bold text-orange-900 border-b border-orange-200 pb-4 mb-6">2. Modul Pentadbir (PK Koku / SU Koku)</h3>
+                    <h3 class="text-xl font-bold text-orange-900 border-b border-orange-200 pb-4 mb-6">2. Modul Admin</h3>
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-4">
                             <img src="kms-login.png" class="img-zoom rounded-xl border shadow-sm w-full" onclick="openModal(this.src)">
@@ -252,12 +248,71 @@
                         </div>
                         <div>
                             <ul class="desc-list text-sm text-slate-700 leading-relaxed">
-                                <li><strong>Kawalan Sistem Berpusat:</strong> Admin mempunyai kuasa penuh untuk mendaftarkan unit-unit kokurikulum dan melantik guru penasihat.</li>
-                                <li><strong>Import Data Murid:</strong> Kemudahan memuat naik data murid secara pukal menggunakan fail CSV, menjimatkan masa pendaftaran awal tahun.</li>
-                                <li><strong>Analisis Enrolmen:</strong> Dashboard admin memaparkan statistik bilangan ahli bagi setiap unit untuk memastikan agihan murid yang seimbang.</li>
-                                <li><strong>Pautan Pantas:</strong> Akses mudah untuk fungsi pendaftaran guru baru dan semakan status murid.</li>
+                                <li><strong>Kawalan Sistem:</strong> Admin menguruskan pendaftaran unit dan guru penasihat.</li>
+                                <li><strong>Import Data:</strong> Muat naik data murid secara pukal (CSV).</li>
                             </ul>
                         </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tab-storms" class="tab-content hidden fade-in">
+                <div class="flex items-center mb-8">
+                    <img src="storm.jpg" class="w-12 h-12 rounded-full mr-4 border border-red-100 shadow-sm">
+                    <h2 class="text-3xl font-black text-slate-800 uppercase">STORMS</h2>
+                    <span class="ml-3 text-sm font-bold bg-red-100 text-red-600 px-3 py-1 rounded-full border border-red-200">Sports Tournament System</span>
+                </div>
+
+                <div class="bg-white rounded-3xl shadow-sm border border-slate-200 p-8 mb-8">
+                    <h3 class="text-xl font-bold text-red-900 border-b pb-4 mb-6">1. Paparan Awam & Log Masuk</h3>
+                    <div class="grid md:grid-cols-2 gap-8 items-start">
+                        <div>
+                            <ul class="desc-list text-sm text-slate-700 leading-relaxed mb-6">
+                                <li><strong>Dashboard Keputusan Live:</strong> Paparan "Pencapaian Kejohanan" menunjukkan kedudukan rumah sukan (Merah, Biru, Hijau, Kuning) dan kutipan pingat secara masa nyata.</li>
+                                <li><strong>Log Masuk Sistem:</strong> Pilihan tahun kejohanan (contoh: 2025) dan jenis pengguna sama ada 'Pengguna' atau 'Admin'.</li>
+                            </ul>
+                            <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 mt-4">
+                                <h4 class="font-bold text-sm text-slate-800 mb-2">Carta Kedudukan:</h4>
+                                <div class="flex gap-2">
+                                    <span class="text-xs bg-red-100 text-red-800 border px-2 py-1 rounded">MERAH</span>
+                                    <span class="text-xs bg-blue-100 text-blue-800 border px-2 py-1 rounded">BIRU</span>
+                                    <span class="text-xs bg-green-100 text-green-800 border px-2 py-1 rounded">HIJAU</span>
+                                    <span class="text-xs bg-yellow-100 text-yellow-800 border px-2 py-1 rounded">KUNING</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="space-y-4">
+                            <img src="storm-dashboard-keputusan.png" class="img-zoom rounded-xl border shadow-md w-full" onclick="openModal(this.src)">
+                            <img src="storm-login.png" class="img-zoom rounded-xl border shadow-sm w-2/3 mx-auto" onclick="openModal(this.src)">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-red-50 border border-red-100 rounded-3xl shadow-sm p-8 mb-8">
+                    <h3 class="text-xl font-bold text-red-900 border-b border-red-200 pb-4 mb-6">2. Modul Guru Rumah Sukan</h3>
+                    <div class="grid md:grid-cols-2 gap-8 items-center">
+                        <img src="storm-dashboard-guru.png" class="img-zoom rounded-xl border border-red-200 shadow-md w-full bg-white" onclick="openModal(this.src)">
+                        <div>
+                            <ul class="desc-list text-sm text-slate-700 leading-relaxed">
+                                <li><strong>Pendaftaran Atlet:</strong> Borang kemasukan data atlet yang merangkumi Nama, Kategori, dan No. Badan (Bip).</li>
+                                <li><strong>Kawalan Acara:</strong> Sistem mengehadkan penyertaan atlet kepada maksimum <strong>5 acara</strong> sahaja.</li>
+                                <li><strong>Senarai Semak:</strong> Paparan senarai atlet yang telah berjaya didaftarkan di sebelah kanan borang.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-slate-900 text-white rounded-3xl shadow-xl p-8">
+                    <h3 class="text-xl font-bold text-red-400 border-b border-slate-700 pb-4 mb-6">3. Panel Kawalan Admin (Urus Setia)</h3>
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div>
+                            <ul class="text-sm text-slate-300 leading-relaxed space-y-4">
+                                <li class="flex items-start"><i class="fas fa-cogs text-red-500 mt-1 mr-2"></i> <span><strong>Setup Tahun Baru:</strong> Butang "Jana Struktur Data" untuk menyediakan pangkalan data bagi tahun kejohanan baru.</span></li>
+                                <li class="flex items-start"><i class="fas fa-key text-red-500 mt-1 mr-2"></i> <span><strong>Pengurusan Akses:</strong> Admin boleh menetapkan dan mengurus kata laluan bagi setiap Rumah Sukan.</span></li>
+                                <li class="flex items-start"><i class="fas fa-file-upload text-red-500 mt-1 mr-2"></i> <span><strong>Import Rekod:</strong> Kemudahan utiliti untuk memuat naik rekod pelajar menggunakan fail .csv.</span></li>
+                            </ul>
+                        </div>
+                        <img src="storm-dashboard-admin.png" class="img-zoom rounded-xl border border-slate-600 w-full" onclick="openModal(this.src)">
                     </div>
                 </div>
             </section>
